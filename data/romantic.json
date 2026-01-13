@@ -1,0 +1,30 @@
+{
+  "category": "Романтика",
+  "description": "Нежные мотивы для вдохновения",
+  "colorings": [
+    {
+      "id": 1,
+      "name": "Букет роз",
+      "description": "Нежный букет из роз и листьев",
+      "image": "images/romantic/roses-1.png",
+      "difficulty": "medium",
+      "downloads": 0
+    },
+    {
+      "id": 2,
+      "name": "Влюбленные сердца",
+      "description": "Переплетающиеся сердца с цветочным орнаментом",
+      "image": "images/romantic/hearts-2.png",
+      "difficulty": "easy",
+      "downloads": 0
+    },
+    {
+      "id": 3,
+      "name": "Романтический закат",
+      "description": "Силуэты влюбленных на фоне заката",
+      "image": "images/romantic/sunset-3.png",
+      "difficulty": "hard",
+      "downloads": 0
+    }
+  ]
+}
