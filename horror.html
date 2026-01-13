@@ -206,59 +206,18 @@
     
     <div class="container">
         <div class="coloring-grid">
-            <!-- Раскраска 1 -->
-            <div class="coloring-card">
-                <div class="coloring-preview">
-                    <img src="https://images.unsplash.com/photo-1509248961158-e54f6934749c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Готический замок">
-                </div>
-                <div class="coloring-info">
-                    <h3 class="coloring-title">Готический замок</h3>
-                    <p class="coloring-description">Мрачный замок с привидениями, летучими мышами и грозовыми тучами. Атмосферная готическая сцена.</p>
-                    <div class="coloring-details">
-                        <span><i class="far fa-file-image"></i> PNG 3000×2000px</span>
-                        <span><i class="far fa-clock"></i> Сложность: высокая</span>
-                    </div>
-                    <a href="https://images.unsplash.com/photo-1509248961158-e54f6934749c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" download="готический-замок.png" class="download-btn">
-                        <i class="fas fa-download"></i> Скачать PNG (2.5 MB)
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Раскраска 2 -->
-            <div class="coloring-card">
-                <div class="coloring-preview">
-                    <img src="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Череп с розами">
-                </div>
-                <div class="coloring-info">
-                    <h3 class="coloring-title">Череп и розы</h3>
-                    <p class="coloring-description">Детализированный череп, переплетенный с розами и колючей проволокой. Мрачная красота.</p>
-                    <div class="coloring-details">
-                        <span><i class="far fa-file-image"></i> PNG 2800×2500px</span>
-                        <span><i class="far fa-clock"></i> Сложность: средняя</span>
-                    </div>
-                    <a href="https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" download="череп-и-розы.png" class="download-btn">
-                        <i class="fas fa-download"></i> Скачать PNG (2.3 MB)
-                    </a>
-                </div>
-            </div>
-            
-            <!-- Раскраска 3 -->
-            <div class="coloring-card">
-                <div class="coloring-preview">
-                    <img src="https://images.unsplash.com/photo-1517960413843-0aee8e2b3285?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Летучие мыши">
-                </div>
-                <div class="coloring-info">
-                    <h3 class="coloring-title">Стая летучих мышей</h3>
-                    <p class="coloring-description">Динамичная композиция с летучими мышами на фоне луны. Идеально для создания мрачной атмосферы.</p>
-                    <div class="coloring-details">
-                        <span><i class="far fa-file-image"></i> PNG 2500×2000px</span>
-                        <span><i class="far fa-clock"></i> Сложность: низкая</span>
-                    </div>
-                    <a href="https://images.unsplash.com/photo-1517960413843-0aee8e2b3285?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" download="стая-летучих-мышей.png" class="download-btn">
-                        <i class="fas fa-download"></i> Скачать PNG (1.9 MB)
-                    </a>
-                </div>
-            </div>
+            <div class="coloring-grid" id="coloringGrid">
+    <!-- Раскраски будут загружаться динамически -->
+</div>
+
+<div id="noColorings" style="text-align: center; padding: 50px 20px; display: none;">
+    <i class="fas fa-images fa-3x" style="color: #cbd5e0; margin-bottom: 20px;"></i>
+    <h3 style="color: #718096; margin-bottom: 10px;">Пока нет раскрасок</h3>
+    <p style="color: #a0aec0;">Добавьте раскраски через админ-панель на главной странице</p>
+    <a href="index.html" style="display: inline-block; margin-top: 20px; padding: 10px 20px; background: #4ecdc4; color: white; text-decoration: none; border-radius: 5px;">
+        <i class="fas fa-arrow-left"></i> Вернуться на главную
+    </a>
+</div>
         </div>
         
         <div class="warning">
