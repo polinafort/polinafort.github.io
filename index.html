@@ -3,70 +3,323 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Раскраски для взрослых</title>
+    <title>Раскраски для взрослых - 3 категории</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
-        body { background: #f5f7fa; color: #333; padding: 20px; }
-        .container { max-width: 1200px; margin: 0 auto; background: white; border-radius: 15px; padding: 30px; box-shadow: 0 5px 15px rgba(0,0,0,0.1); }
-        header { text-align: center; margin-bottom: 40px; padding-bottom: 20px; border-bottom: 2px solid #eee; }
-        h1 { color: #4a5568; font-size: 2.5rem; margin-bottom: 10px; }
-        .subtitle { color: #718096; font-size: 1.2rem; }
-        .gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 25px; margin-top: 40px; }
-        .card { background: white; border-radius: 10px; overflow: hidden; box-shadow: 0 3px 10px rgba(0,0,0,0.1); transition: transform 0.3s; }
-        .card:hover { transform: translateY(-5px); }
-        .card img { width: 100%; height: 250px; object-fit: cover; }
-        .card-content { padding: 20px; }
-        .card h3 { margin-bottom: 10px; color: #2d3748; }
-        .btn { display: inline-block; background: #4299e1; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: bold; margin-top: 10px; }
-        .btn:hover { background: #3182ce; }
-        footer { text-align: center; margin-top: 50px; padding-top: 20px; border-top: 1px solid #eee; color: #718096; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%);
+            min-height: 100vh;
+            color: #2d3748;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #2d3748;
+            position: relative;
+            display: inline-block;
+        }
+        
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, #ff6b6b, #4ecdc4, #ffd166);
+            border-radius: 2px;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            color: #718096;
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+        
+        .category-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            position: relative;
+            cursor: pointer;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+        
+        .category-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+        
+        .category-image {
+            height: 250px;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .category-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .category-card:hover .category-image img {
+            transform: scale(1.1);
+        }
+        
+        .category-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.3));
+        }
+        
+        .category-content {
+            padding: 30px;
+        }
+        
+        .category-badge {
+            display: inline-block;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .anti-stress .category-badge {
+            background: linear-gradient(to right, #4ecdc4, #06d6a0);
+            color: white;
+        }
+        
+        .romantic .category-badge {
+            background: linear-gradient(to right, #ff6b6b, #ff8e8e);
+            color: white;
+        }
+        
+        .horror .category-badge {
+            background: linear-gradient(to right, #6b46c1, #9f7aea);
+            color: white;
+        }
+        
+        .category-title {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+            color: #2d3748;
+        }
+        
+        .category-description {
+            color: #718096;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .category-stats {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 20px;
+            border-top: 1px solid #e2e8f0;
+            color: #a0aec0;
+            font-size: 0.9rem;
+        }
+        
+        .category-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #4299e1;
+            font-weight: 600;
+            text-decoration: none;
+            transition: gap 0.3s ease;
+        }
+        
+        .category-card:hover .category-link {
+            gap: 12px;
+        }
+        
+        .category-link i {
+            transition: transform 0.3s ease;
+        }
+        
+        .category-card:hover .category-link i {
+            transform: translateX(5px);
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 80px;
+            padding-top: 30px;
+            border-top: 1px solid #e2e8f0;
+            color: #718096;
+        }
+        
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 20px;
+        }
+        
+        .footer-links a {
+            color: #4a5568;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            color: #4299e1;
+        }
+        
+        @media (max-width: 768px) {
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .category-image {
+                height: 200px;
+            }
+        }
     </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>🎨 Раскраски для взрослых</h1>
-            <p class="subtitle">Скачивайте, распечатывайте и расслабляйтесь!</p>
+            <h1>Раскраски для взрослых</h1>
+            <p class="subtitle">Выберите категорию, скачайте PNG-файл, распечатайте и наслаждайтесь терапевтическим эффектом раскрашивания</p>
         </header>
         
-        <div class="gallery">
-            <div class="card">
-                <img src="https://placehold.co/600x400/4ecdc4/ffffff?text=Мандала" alt="Мандала">
-                <div class="card-content">
-                    <h3>Мандала "Гармония"</h3>
-                    <p>Симметричная раскраска для медитации</p>
-                    <a href="#" class="btn">Скачать PNG</a>
+        <div class="categories-grid">
+            <!-- Антистресс -->
+            <a href="anti-stress.html" class="category-card anti-stress">
+                <div class="category-image">
+                    <div class="category-overlay"></div>
+                    <img src="https://images.unsplash.com/photo-1548428228-86f2d8e6d26d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Антистресс раскраски">
                 </div>
-            </div>
+                <div class="category-content">
+                    <div class="category-badge">Антистресс</div>
+                    <h2 class="category-title">Успокаивающие узоры</h2>
+                    <p class="category-description">Мандалы, орнаменты и геометрические узоры для релаксации и медитации. Идеально для снятия стресса после тяжелого дня.</p>
+                    <div class="category-stats">
+                        <span>3 раскраски доступны</span>
+                        <span class="category-link">Перейти <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+            </a>
             
-            <div class="card">
-                <img src="https://placehold.co/600x400/ff6b6b/ffffff?text=Цветы" alt="Цветочный орнамент">
-                <div class="card-content">
-                    <h3>Цветочный орнамент</h3>
-                    <p>Нежные цветы и завитки</p>
-                    <a href="#" class="btn">Скачать PNG</a>
+            <!-- Романтика -->
+            <a href="romantic.html" class="category-card romantic">
+                <div class="category-image">
+                    <div class="category-overlay"></div>
+                    <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Романтические раскраски">
                 </div>
-            </div>
+                <div class="category-content">
+                    <div class="category-badge">Романтика</div>
+                    <h2 class="category-title">Нежные мотивы</h2>
+                    <p class="category-description">Цветы, сердца, пары и романтические сцены. Прекрасный способ выразить свои чувства через искусство.</p>
+                    <div class="category-stats">
+                        <span>3 раскраски доступны</span>
+                        <span class="category-link">Перейти <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+            </a>
             
-            <div class="card">
-                <img src="https://placehold.co/600x400/06d6a0/ffffff?text=Животные" alt="Животные">
-                <div class="card-content">
-                    <h3>Лесные животные</h3>
-                    <p>Милые зверушки в природе</p>
-                    <a href="#" class="btn">Скачать PNG</a>
+            <!-- Хоррор -->
+            <a href="horror.html" class="category-card horror">
+                <div class="category-image">
+                    <div class="category-overlay"></div>
+                    <img src="https://images.unsplash.com/photo-1509248961158-e54f6934749c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Хоррор раскраски">
                 </div>
-            </div>
+                <div class="category-content">
+                    <div class="category-badge">Хоррор</div>
+                    <h2 class="category-title">Мрачные сюжеты</h2>
+                    <p class="category-description">Готические узоры, монстры, кладбища и мистические существа для любителей темной эстетики.</p>
+                    <div class="category-stats">
+                        <span>3 раскраски доступны</span>
+                        <span class="category-link">Перейти <i class="fas fa-arrow-right"></i></span>
+                    </div>
+                </div>
+            </a>
         </div>
         
         <footer>
-            <p>© 2024 Антистресс раскраски. Для личного использования.</p>
-            <p style="margin-top: 10px; font-size: 0.9rem;">Загрузите свои раскраски через панель администратора</p>
+            <p>© 2024 Раскраски для взрослых. Все изображения предназначены для личного использования.</p>
+            <div class="footer-links">
+                <a href="#"><i class="fas fa-download"></i> Как скачивать</a>
+                <a href="#"><i class="fas fa-print"></i> Как печатать</a>
+                <a href="#"><i class="fas fa-palette"></i> Инструменты</a>
+            </div>
         </footer>
     </div>
     
     <script>
-        // Простой скрипт для демонстрации
-        console.log('Сайт раскрасок загружен!');
+        // Анимация при загрузке
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.category-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(30px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 200);
+            });
+        });
+        
+        // Добавляем класс при наведении для лучшей анимации
+        document.querySelectorAll('.category-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                this.classList.add('hovered');
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                this.classList.remove('hovered');
+            });
+        });
     </script>
 </body>
 </html>
