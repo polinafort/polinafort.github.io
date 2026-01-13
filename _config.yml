@@ -1,0 +1,5 @@
+title: "Раскраски для взрослых"
+description: "Сайт для скачивания раскрасок"
+theme: jekyll-theme-minimal
+plugins:
+  - jekyll-sitemap
