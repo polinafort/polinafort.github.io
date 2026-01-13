@@ -5,189 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Антистресс раскраски - Скачать PNG</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-        
-        body {
-            background: linear-gradient(135deg, #f0f9f8 0%, #e1f5f3 100%);
-            min-height: 100vh;
-            color: #2d3748;
-        }
-        
-        .header {
-            background: linear-gradient(to right, #4ecdc4, #06d6a0);
-            color: white;
-            padding: 30px 20px;
-            text-align: center;
-            margin-bottom: 40px;
-            box-shadow: 0 4px 20px rgba(6, 214, 160, 0.3);
-        }
-        
-        .back-button {
-            position: absolute;
-            top: 30px;
-            left: 30px;
-            color: white;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 600;
-            transition: gap 0.3s ease;
-        }
-        
-        .back-button:hover {
-            gap: 12px;
-        }
-        
-        .header h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        
-        .header p {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.6;
-        }
-        
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px 40px;
-        }
-        
-        .coloring-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            margin-top: 30px;
-        }
-        
-        .coloring-card {
-            background: white;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-        }
-        
-        .coloring-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
-        }
-        
-        .coloring-preview {
-            height: 250px;
-            background: #f8f9fa;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-            position: relative;
-        }
-        
-        .coloring-preview img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            transition: transform 0.5s ease;
-        }
-        
-        .coloring-card:hover .coloring-preview img {
-            transform: scale(1.05);
-        }
-        
-        .coloring-info {
-            padding: 25px;
-        }
-        
-        .coloring-title {
-            font-size: 1.4rem;
-            margin-bottom: 10px;
-            color: #2d3748;
-        }
-        
-        .coloring-description {
-            color: #718096;
-            line-height: 1.5;
-            margin-bottom: 20px;
-            font-size: 0.95rem;
-        }
-        
-        .coloring-details {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: #a0aec0;
-            font-size: 0.9rem;
-            margin-bottom: 20px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #e2e8f0;
-        }
-        
-        .download-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            width: 100%;
-            padding: 15px;
-            background: linear-gradient(to right, #4ecdc4, #06d6a0);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-        }
-        
-        .download-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(6, 214, 160, 0.3);
-        }
-        
-        .print-tip {
-            background: #fff9e6;
-            border-radius: 10px;
-            padding: 20px;
-            margin-top: 40px;
-            border-left: 4px solid #ffd166;
-        }
-        
-        .print-tip h3 {
-            color: #d69e2e;
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        @media (max-width: 768px) {
-            .coloring-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .header h1 {
-                font-size: 2rem;
-            }
-            
-            .back-button {
-                position: relative;
-                top: 0;
-                left: 0;
-                margin-bottom: 20px;
-                justify-content: center;
-            }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background: linear-gradient(135deg, #f0f9f8 0%, #e1f5f3 100%); min-height: 100vh; color: #2d3748; }
+        .header { background: linear-gradient(to right, #4ecdc4, #06d6a0); color: white; padding: 30px 20px; text-align: center; margin-bottom: 40px; }
+        .back-button { position: absolute; top: 30px; left: 30px; color: white; text-decoration: none; display: flex; align-items: center; gap: 8px; font-weight: 600; }
+        .header h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 20px 40px; }
+        .coloring-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px; margin-top: 30px; }
+        .coloring-card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.08); transition: all 0.3s; }
+        .coloring-card:hover { transform: translateY(-10px); box-shadow: 0 15px 35px rgba(0,0,0,0.12); }
+        .coloring-preview { height: 250px; background: #f8f9fa; display: flex; align-items: center; justify-content: center; padding: 20px; }
+        .coloring-preview img { max-width: 100%; max-height: 100%; object-fit: contain; transition: transform 0.5s; }
+        .coloring-card:hover .coloring-preview img { transform: scale(1.05); }
+        .coloring-info { padding: 25px; }
+        .coloring-title { font-size: 1.4rem; margin-bottom: 10px; color: #2d3748; }
+        .coloring-description { color: #718096; line-height: 1.5; margin-bottom: 20px; font-size: 0.95rem; }
+        .coloring-details { display: flex; justify-content: space-between; align-items: center; color: #a0aec0; font-size: 0.9rem; margin-bottom: 20px; padding-bottom: 20px; border-bottom: 1px solid #e2e8f0; }
+        .download-btn { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 15px; background: linear-gradient(to right, #4ecdc4, #06d6a0); color: white; border: none; border-radius: 10px; font-weight: 600; cursor: pointer; text-decoration: none; }
+        .download-btn:hover { transform: translateY(-3px); box-shadow: 0 8px 20px rgba(6, 214, 160, 0.3); }
+        .empty-state { text-align: center; padding: 80px 20px; color: #718096; }
+        @media (max-width: 768px) { .coloring-grid { grid-template-columns: 1fr; } .header h1 { font-size: 2rem; } }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -197,92 +34,57 @@
             <i class="fas fa-arrow-left"></i> Назад к категориям
         </a>
         <h1>Антистресс раскраски</h1>
-        <p>Скачайте PNG-файлы, распечатайте и погрузитесь в мир спокойствия и гармонии</p>
+        <p>Скачайте PNG-файлы, распечатайте и расслабьтесь</p>
     </div>
     
     <div class="container">
-        <div class="coloring-grid">
-            <div class="coloring-grid" id="coloringGrid">
-    <!-- Раскраски будут загружаться динамически -->
-</div>
-
-<div id="noColorings" style="text-align: center; padding: 50px 20px; display: none;">
-    <i class="fas fa-images fa-3x" style="color: #cbd5e0; margin-bottom: 20px;"></i>
-    <h3 style="color: #718096; margin-bottom: 10px;">Пока нет раскрасок</h3>
-    <p style="color: #a0aec0;">Добавьте раскраски через админ-панель на главной странице</p>
-    <a href="index.html" style="display: inline-block; margin-top: 20px; padding: 10px 20px; background: #4ecdc4; color: white; text-decoration: none; border-radius: 5px;">
-        <i class="fas fa-arrow-left"></i> Вернуться на главную
-    </a>
-</div>
+        <div class="coloring-grid" id="coloringGrid">
+            <!-- Карточки будут загружены через JavaScript -->
         </div>
         
-        <div class="print-tip">
+        <div id="emptyState" class="empty-state" style="display: none;">
+            <i class="fas fa-images fa-3x" style="color: #cbd5e0; margin-bottom: 20px;"></i>
+            <h3>Пока нет раскрасок</h3>
+            <p>Администратор скоро добавит новые раскраски</p>
+        </div>
+        
+        <div class="print-tip" style="background: #fff9e6; border-radius: 10px; padding: 20px; margin-top: 40px; border-left: 4px solid #ffd166;">
             <h3><i class="fas fa-lightbulb"></i> Советы по печати</h3>
-            <p>Для лучшего результата используйте плотную бумагу (от 120 г/м²) и цветные карандаши или гелевые ручки. Печатайте в масштабе 100% для сохранения детализации.</p>
+            <p>Используйте плотную бумагу (от 120 г/м²) и цветные карандаши. Печатайте в масштабе 100%.</p>
         </div>
     </div>
     
     <script>
-        // Подсчет скачиваний
-        document.querySelectorAll('.download-btn').forEach(btn => {
-            btn.addEventListener('click', function(e) {
-                const fileName = this.getAttribute('download');
-                alert(`Начинается скачивание: ${fileName}\n\nФайл сохранится в папке "Загрузки".`);
-            });
-        });
+        // Определяем категорию из URL
+        const category = 'anti-stress';
         
-        // Сохранение статистики в localStorage
-        document.addEventListener('DOMContentLoaded', function() {
-            let downloads = localStorage.getItem('antiStressDownloads') || 0;
-            
-            document.querySelectorAll('.download-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    downloads++;
-                    localStorage.setItem('antiStressDownloads', downloads);
-                    console.log(`Всего скачиваний антистресс раскрасок: ${downloads}`);
-                });
-            });
-        });
-    </script>
-    <script>
-    // Загрузка раскрасок для текущей категории
-    document.addEventListener('DOMContentLoaded', function() {
-        // Определяем категорию из имени файла
-        let category = '';
-        if (window.location.pathname.includes('anti-stress')) {
-            category = 'anti-stress';
-        } else if (window.location.pathname.includes('romantic')) {
-            category = 'romantic';
-        } else if (window.location.pathname.includes('horror')) {
-            category = 'horror';
-        }
-        
-        // Загружаем раскраски из localStorage
-        try {
-            const coloringsData = localStorage.getItem('adultColoringPages');
-            if (coloringsData) {
-                const allColorings = JSON.parse(coloringsData);
-                const categoryColorings = allColorings[category] || [];
+        // Загружаем раскраски из JSON файла
+        async function loadColorings() {
+            try {
+                const response = await fetch(`data/${category}.json`);
+                if (!response.ok) throw new Error('Файл не найден');
                 
+                const data = await response.json();
                 const grid = document.getElementById('coloringGrid');
-                const noColorings = document.getElementById('noColorings');
+                const emptyState = document.getElementById('emptyState');
                 
-                if (categoryColorings.length === 0) {
-                    if (grid) grid.style.display = 'none';
-                    if (noColorings) noColorings.style.display = 'block';
+                if (!data.colorings || data.colorings.length === 0) {
+                    grid.style.display = 'none';
+                    emptyState.style.display = 'block';
                     return;
                 }
                 
                 // Создаем карточки для каждой раскраски
-                categoryColorings.forEach((coloring, index) => {
+                data.colorings.forEach((coloring, index) => {
                     const card = document.createElement('div');
                     card.className = 'coloring-card';
                     
-                    const difficultyText = {
-                        'low': 'Низкая',
-                        'medium': 'Средняя',
-                        'high': 'Высокая'
-                    }[coloring.difficulty] || 'Средняя';
+                    // Определяем сложность
+                    const difficultyMap = {
+                        'easy': 'Низкая',
+                        'medium': 'Средняя', 
+                        'hard': 'Высокая'
+                    };
                     
                     card.innerHTML = `
                         <div class="coloring-preview">
@@ -293,62 +95,49 @@
                             <p class="coloring-description">${coloring.description}</p>
                             <div class="coloring-details">
                                 <span><i class="far fa-file-image"></i> PNG</span>
-                                <span><i class="far fa-clock"></i> Сложность: ${difficultyText}</span>
+                                <span><i class="far fa-clock"></i> ${difficultyMap[coloring.difficulty] || 'Средняя'}</span>
                             </div>
-                            <a href="${coloring.image}" download="${coloring.name.replace(/[^a-zа-яё0-9]/gi, '-')}.png" class="download-btn download-coloring" data-id="${coloring.id}">
+                            <a href="${coloring.image}" download="${coloring.name.replace(/[^a-zа-яё0-9]/gi, '-')}.png" 
+                               class="download-btn" data-id="${coloring.id}" onclick="trackDownload(${coloring.id})">
                                 <i class="fas fa-download"></i> Скачать PNG
                             </a>
                         </div>
                     `;
                     
-                    if (grid) {
-                        // Анимация появления
-                        card.style.opacity = '0';
-                        card.style.transform = 'translateY(20px)';
-                        grid.appendChild(card);
-                        
-                        setTimeout(() => {
-                            card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-                            card.style.opacity = '1';
-                            card.style.transform = 'translateY(0)';
-                        }, index * 100);
-                    }
+                    // Анимация появления
+                    card.style.opacity = '0';
+                    card.style.transform = 'translateY(20px)';
+                    grid.appendChild(card);
+                    
+                    setTimeout(() => {
+                        card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                        card.style.opacity = '1';
+                        card.style.transform = 'translateY(0)';
+                    }, index * 100);
                 });
                 
-                // Добавляем обработчик скачивания
-                document.querySelectorAll('.download-coloring').forEach(btn => {
-                    btn.addEventListener('click', function() {
-                        const coloringId = parseInt(this.dataset.id);
-                        
-                        // Обновляем счетчик скачиваний
-                        const coloringsData = localStorage.getItem('adultColoringPages');
-                        if (coloringsData) {
-                            const allColorings = JSON.parse(coloringsData);
-                            const coloring = allColorings[category].find(c => c.id === coloringId);
-                            
-                            if (coloring) {
-                                coloring.downloads = (coloring.downloads || 0) + 1;
-                                localStorage.setItem('adultColoringPages', JSON.stringify(allColorings));
-                                
-                                // Обновляем счетчик на главной странице
-                                if (window.opener) {
-                                    window.opener.coloringAdmin?.updateCategoryCounts();
-                                }
-                            }
-                        }
-                        
-                        // Уведомление
-                        setTimeout(() => {
-                            alert('Скачивание началось! Файл сохранится в папке "Загрузки".');
-                        }, 500);
-                    });
-                });
-                
+            } catch (error) {
+                console.error('Ошибка загрузки раскрасок:', error);
+                document.getElementById('emptyState').style.display = 'block';
             }
-        } catch (error) {
-            console.error('Ошибка загрузки раскрасок:', error);
         }
-    });
-</script>
+        
+        // Отслеживание скачиваний (сохраняем в localStorage)
+        function trackDownload(coloringId) {
+            // Увеличиваем счетчик скачиваний
+            const downloadsKey = `${category}_downloads`;
+            let downloads = JSON.parse(localStorage.getItem(downloadsKey) || '{}');
+            downloads[coloringId] = (downloads[coloringId] || 0) + 1;
+            localStorage.setItem(downloadsKey, JSON.stringify(downloads));
+            
+            // Показываем уведомление
+            setTimeout(() => {
+                alert('Скачивание началось! Файл сохранится в папке "Загрузки".');
+            }, 100);
+        }
+        
+        // Загружаем раскраски при загрузке страницы
+        document.addEventListener('DOMContentLoaded', loadColorings);
+    </script>
 </body>
 </html>
