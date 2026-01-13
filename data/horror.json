@@ -1,0 +1,30 @@
+{
+  "category": "Хоррор",
+  "description": "Мрачные сюжеты для любителей темной эстетики",
+  "colorings": [
+    {
+      "id": 1,
+      "name": "Готический замок",
+      "description": "Мрачный замок с привидениями и летучими мышами",
+      "image": "images/horror/castle-1.png",
+      "difficulty": "hard",
+      "downloads": 0
+    },
+    {
+      "id": 2,
+      "name": "Череп и розы",
+      "description": "Детализированный череп с розами",
+      "image": "images/horror/skull-2.png",
+      "difficulty": "medium",
+      "downloads": 0
+    },
+    {
+      "id": 3,
+      "name": "Летучие мыши",
+      "description": "Стая летучих мышей на фоне луны",
+      "image": "images/horror/bats-3.png",
+      "difficulty": "easy",
+      "downloads": 0
+    }
+  ]
+}
