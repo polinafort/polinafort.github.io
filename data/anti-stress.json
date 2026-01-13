@@ -6,7 +6,7 @@
       "id": 1,
       "name": "Мандала 'Гармония'",
       "description": "Круговая симметричная мандала с цветочными элементами",
-      "image": "images/anti-stress/test.png",
+      "image": "images/anti-stress/content.png",
       "difficulty": "medium",
       "downloads": 0
     },
@@ -14,7 +14,7 @@
       "id": 2,
       "name": "Геометрический лабиринт",
       "description": "Сложные геометрические узоры для концентрации",
-      "image": "images/anti-stress/pattern-2.png",
+      "image": "images/anti-stress/test.png",
       "difficulty": "hard",
       "downloads": 0
     },
