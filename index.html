@@ -3,371 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Раскраски для взрослых - Админ панель</title>
+    <title>Раскраски для взрослых - 3 категории</title>
     <style>
-        /* [Весь CSS из предыдущей версии index.html - оставляем без изменений] */
-        /* Добавляем только стили для админ-панели */
-        
-        .admin-panel {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-        
-        .admin-btn {
-            background: linear-gradient(to right, #6b46c1, #9f7aea);
-            color: white;
-            border: none;
-            padding: 12px 25px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            box-shadow: 0 4px 15px rgba(107, 70, 193, 0.3);
-            transition: all 0.3s ease;
-        }
-        
-        .admin-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(107, 70, 193, 0.4);
-        }
-        
-        /* Модальное окно админа */
-        .admin-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.7);
-            z-index: 1001;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .admin-modal.active {
-            display: flex;
-        }
-        
-        .admin-modal-content {
-            background: white;
-            border-radius: 20px;
-            width: 90%;
-            max-width: 500px;
-            max-height: 80vh;
-            overflow-y: auto;
-            padding: 30px;
-            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
-        }
-        
-        .admin-modal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 25px;
-            padding-bottom: 15px;
-            border-bottom: 2px solid #e2e8f0;
-        }
-        
-        .admin-modal-header h2 {
-            color: #2d3748;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .close-admin {
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            color: #718096;
-            cursor: pointer;
-            padding: 5px;
-            line-height: 1;
-        }
-        
-        .close-admin:hover {
-            color: #2d3748;
-        }
-        
-        .admin-form {
-            margin-bottom: 25px;
-        }
-        
-        .form-group {
-            margin-bottom: 20px;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 600;
-            color: #4a5568;
-        }
-        
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 12px;
-            border: 2px solid #e2e8f0;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: border-color 0.3s;
-        }
-        
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            border-color: #4ecdc4;
-            outline: none;
-        }
-        
-        .form-group textarea {
-            resize: vertical;
-            min-height: 80px;
-        }
-        
-        .file-input-container {
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .file-input-label {
-            display: block;
-            padding: 15px;
-            background: #f8f9fa;
-            border: 2px dashed #cbd5e0;
-            border-radius: 10px;
-            text-align: center;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .file-input-label:hover {
-            background: #edf2f7;
-            border-color: #a0aec0;
-        }
-        
-        .file-input-label i {
-            font-size: 2rem;
-            color: #718096;
-            margin-bottom: 10px;
-            display: block;
-        }
-        
-        .file-input {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            cursor: pointer;
-        }
-        
-        .selected-file {
-            margin-top: 10px;
-            padding: 10px;
-            background: #e6fffa;
-            border-radius: 5px;
-            border: 1px solid #81e6d9;
-            font-size: 0.9rem;
-            color: #234e52;
-        }
-        
-        .admin-buttons {
-            display: flex;
-            gap: 15px;
-        }
-        
-        .submit-btn {
-            flex: 1;
-            padding: 15px;
-            background: linear-gradient(to right, #4ecdc4, #06d6a0);
-            color: white;
-            border: none;
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(6, 214, 160, 0.3);
-        }
-        
-        .cancel-btn {
-            flex: 1;
-            padding: 15px;
-            background: #e2e8f0;
-            color: #4a5568;
-            border: none;
-            border-radius: 10px;
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-        
-        .cancel-btn:hover {
-            background: #cbd5e0;
-        }
-        
-        .notification {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            padding: 15px 25px;
-            border-radius: 10px;
-            color: white;
-            font-weight: 600;
-            z-index: 1002;
-            animation: slideUp 0.3s ease;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-        }
-        
-        .notification.success {
-            background: linear-gradient(to right, #4ecdc4, #06d6a0);
-        }
-        
-        .notification.error {
-            background: linear-gradient(to right, #ff6b6b, #ff8e8e);
-        }
-        
-        @keyframes slideUp {
-            from { transform: translateY(100%); opacity: 0; }
-            to { transform: translateY(0); opacity: 1; }
-        }
-        
-        @keyframes fadeOut {
-            from { opacity: 1; }
-            to { opacity: 0; }
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background: linear-gradient(135deg, #f5f7fa 0%, #e9ecef 100%); min-height: 100vh; color: #2d3748; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { text-align: center; padding: 40px 20px; margin-bottom: 40px; }
+        h1 { font-size: 2.8rem; margin-bottom: 15px; color: #2d3748; }
+        .subtitle { font-size: 1.2rem; color: #718096; max-width: 600px; margin: 0 auto; line-height: 1.6; }
+        .admin-link { position: fixed; top: 20px; right: 20px; background: #6b46c1; color: white; padding: 10px 20px; border-radius: 5px; text-decoration: none; font-weight: 600; }
+        .categories-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px; margin-top: 50px; }
+        .category-card { background: white; border-radius: 20px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1); transition: all 0.3s; text-decoration: none; color: inherit; }
+        .category-card:hover { transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+        .category-image { height: 250px; overflow: hidden; }
+        .category-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
+        .category-card:hover .category-image img { transform: scale(1.1); }
+        .category-content { padding: 25px; }
+        .category-badge { display: inline-block; padding: 8px 20px; border-radius: 50px; font-weight: 600; margin-bottom: 15px; }
+        .anti-stress .category-badge { background: linear-gradient(to right, #4ecdc4, #06d6a0); color: white; }
+        .romantic .category-badge { background: linear-gradient(to right, #ff6b6b, #ff8e8e); color: white; }
+        .horror .category-badge { background: linear-gradient(to right, #6b46c1, #9f7aea); color: white; }
+        .category-title { font-size: 1.5rem; margin-bottom: 10px; }
+        .category-stats { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; padding-top: 20px; border-top: 1px solid #e2e8f0; color: #a0aec0; }
+        footer { text-align: center; margin-top: 80px; padding-top: 30px; border-top: 1px solid #e2e8f0; color: #718096; }
+        @media (max-width: 768px) { .categories-grid { grid-template-columns: 1fr; } h1 { font-size: 2rem; } }
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
-    <!-- Админ-кнопка -->
-    <div class="admin-panel">
-        <button class="admin-btn" id="openAdminBtn">
-            <i class="fas fa-user-cog"></i> Админ-панель
-        </button>
-    </div>
-    
-    <!-- Модальное окно админа -->
-    <div class="admin-modal" id="adminModal">
-        <div class="admin-modal-content">
-            <div class="admin-modal-header">
-                <h2><i class="fas fa-plus-circle"></i> Добавить раскраску</h2>
-                <button class="close-admin" id="closeAdminBtn">&times;</button>
-            </div>
-            
-            <form class="admin-form" id="addColoringForm">
-                <div class="form-group">
-                    <label for="coloringName">Название раскраски *</label>
-                    <input type="text" id="coloringName" placeholder="Например: Мандала 'Спокойствие'" required>
-                </div>
-                
-                <div class="form-group">
-                    <label for="coloringCategory">Категория *</label>
-                    <select id="coloringCategory" required>
-                        <option value="">Выберите категорию</option>
-                        <option value="anti-stress">Антистресс</option>
-                        <option value="romantic">Романтика</option>
-                        <option value="horror">Хоррор</option>
-                    </select>
-                </div>
-                
-                <div class="form-group">
-                    <label for="coloringDescription">Описание</label>
-                    <textarea id="coloringDescription" placeholder="Краткое описание раскраски..."></textarea>
-                </div>
-                
-                <div class="form-group">
-                    <label>Изображение раскраски *</label>
-                    <div class="file-input-container">
-                        <label class="file-input-label" for="coloringImage">
-                            <i class="fas fa-cloud-upload-alt"></i>
-                            <span>Нажмите или перетащите PNG-файл</span>
-                            <br>
-                            <small>Рекомендуется: PNG с прозрачным фоном</small>
-                        </label>
-                        <input type="file" class="file-input" id="coloringImage" accept=".png,.jpg,.jpeg" required>
-                    </div>
-                    <div class="selected-file" id="selectedFileName" style="display: none;"></div>
-                </div>
-                
-                <div class="form-group">
-                    <label>Сложность</label>
-                    <div style="display: flex; gap: 15px;">
-                        <label style="display: flex; align-items: center; gap: 5px;">
-                            <input type="radio" name="difficulty" value="low" checked> Низкая
-                        </label>
-                        <label style="display: flex; align-items: center; gap: 5px;">
-                            <input type="radio" name="difficulty" value="medium"> Средняя
-                        </label>
-                        <label style="display: flex; align-items: center; gap: 5px;">
-                            <input type="radio" name="difficulty" value="high"> Высокая
-                        </label>
-                    </div>
-                </div>
-                
-                <div class="admin-buttons">
-                    <button type="submit" class="submit-btn">
-                        <i class="fas fa-save"></i> Сохранить раскраску
-                    </button>
-                    <button type="button" class="cancel-btn" id="cancelBtn">
-                        Отмена
-                    </button>
-                </div>
-            </form>
-            
-            <div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #e2e8f0;">
-                <h3 style="margin-bottom: 15px; color: #4a5568;"><i class="fas fa-database"></i> Управление данными</h3>
-                <div style="display: flex; gap: 10px;">
-                    <button class="cancel-btn" id="exportBtn" style="flex: 1;">
-                        <i class="fas fa-download"></i> Экспорт данных
-                    </button>
-                    <button class="cancel-btn" id="importBtn" style="flex: 1;">
-                        <i class="fas fa-upload"></i> Импорт данных
-                    </button>
-                    <button class="cancel-btn" id="resetBtn" style="flex: 1; background: #fff5f5; color: #c53030;">
-                        <i class="fas fa-trash"></i> Очистить все
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
-    
-    <!-- Остальная часть index.html (категории) -->
     <div class="container">
         <header>
-            <h1>Раскраски для взрослых</h1>
-            <p class="subtitle">Выберите категорию, скачайте PNG-файл, распечатайте и наслаждайтесь терапевтическим эффектом раскрашивания</p>
+            <h1>🎨 Раскраски для взрослых</h1>
+            <p class="subtitle">Скачайте PNG-файлы, распечатайте и наслаждайтесь творчеством</p>
         </header>
         
         <div class="categories-grid">
             <!-- Антистресс -->
             <a href="anti-stress.html" class="category-card anti-stress">
                 <div class="category-image">
-                    <div class="category-overlay"></div>
-                    <img src="https://images.unsplash.com/photo-1548428228-86f2d8e6d26d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Антистресс раскраски">
+                    <img src="https://images.unsplash.com/photo-1548428228-86f2d8e6d26d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Антистресс">
                 </div>
                 <div class="category-content">
                     <div class="category-badge">Антистресс</div>
                     <h2 class="category-title">Успокаивающие узоры</h2>
-                    <p class="category-description" id="antiStressCount">Загружается...</p>
+                    <p>Мандалы и геометрические орнаменты для релаксации</p>
                     <div class="category-stats">
-                        <span id="antiStressStats">Загружается...</span>
-                        <span class="category-link">Перейти <i class="fas fa-arrow-right"></i></span>
+                        <span id="antiStressCount">Загрузка...</span>
+                        <span><i class="fas fa-arrow-right"></i></span>
                     </div>
                 </div>
             </a>
@@ -375,16 +57,15 @@
             <!-- Романтика -->
             <a href="romantic.html" class="category-card romantic">
                 <div class="category-image">
-                    <div class="category-overlay"></div>
-                    <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Романтические раскраски">
+                    <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Романтика">
                 </div>
                 <div class="category-content">
                     <div class="category-badge">Романтика</div>
                     <h2 class="category-title">Нежные мотивы</h2>
-                    <p class="category-description" id="romanticCount">Загружается...</p>
+                    <p>Цветы, сердца и романтические сюжеты</p>
                     <div class="category-stats">
-                        <span id="romanticStats">Загружается...</span>
-                        <span class="category-link">Перейти <i class="fas fa-arrow-right"></i></span>
+                        <span id="romanticCount">Загрузка...</span>
+                        <span><i class="fas fa-arrow-right"></i></span>
                     </div>
                 </div>
             </a>
@@ -392,46 +73,46 @@
             <!-- Хоррор -->
             <a href="horror.html" class="category-card horror">
                 <div class="category-image">
-                    <div class="category-overlay"></div>
-                    <img src="https://images.unsplash.com/photo-1509248961158-e54f6934749c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Хоррор раскраски">
+                    <img src="https://images.unsplash.com/photo-1509248961158-e54f6934749c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Хоррор">
                 </div>
                 <div class="category-content">
                     <div class="category-badge">Хоррор</div>
                     <h2 class="category-title">Мрачные сюжеты</h2>
-                    <p class="category-description" id="horrorCount">Загружается...</p>
+                    <p>Готические узоры и мистические существа</p>
                     <div class="category-stats">
-                        <span id="horrorStats">Загружается...</span>
-                        <span class="category-link">Перейти <i class="fas fa-arrow-right"></i></span>
+                        <span id="horrorCount">Загрузка...</span>
+                        <span><i class="fas fa-arrow-right"></i></span>
                     </div>
                 </div>
             </a>
         </div>
         
         <footer>
-            <p>© 2024 Раскраски для взрослых. Все изображения предназначены для личного использования.</p>
-            <div class="footer-links">
-                <a href="#" id="howToDownload"><i class="fas fa-download"></i> Как добавлять раскраски</a>
-                <a href="#" id="howToPrint"><i class="fas fa-print"></i> Как печатать</a>
-            </div>
+            <p>© 2024 Раскраски для взрослых. Все изображения для личного использования.</p>
+            <p style="margin-top: 10px; font-size: 0.9rem;">Добавить раскраски может только администратор через GitHub</p>
         </footer>
     </div>
     
-    <script src="admin-system.js"></script>
     <script>
-        // Остальной скрипт из index.html
-        document.addEventListener('DOMContentLoaded', function() {
-            const cards = document.querySelectorAll('.category-card');
-            cards.forEach((card, index) => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(30px)';
-                
-                setTimeout(() => {
-                    card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-                    card.style.opacity = '1';
-                    card.style.transform = 'translateY(0)';
-                }, index * 200);
-            });
-        });
+        // Загрузка счетчиков из JSON файлов
+        async function loadCategoryCounts() {
+            const categories = ['anti-stress', 'romantic', 'horror'];
+            
+            for (const category of categories) {
+                try {
+                    const response = await fetch(`data/${category}.json`);
+                    if (response.ok) {
+                        const data = await response.json();
+                        const count = data.colorings ? data.colorings.length : 0;
+                        document.getElementById(`${category}Count`).textContent = `${count} раскрасок`;
+                    }
+                } catch (error) {
+                    document.getElementById(`${category}Count`).textContent = '0 раскрасок';
+                }
+            }
+        }
+        
+        document.addEventListener('DOMContentLoaded', loadCategoryCounts);
     </script>
 </body>
 </html>
