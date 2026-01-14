@@ -79,7 +79,7 @@
         .category-stats { display: flex; justify-content: space-between; align-items: center; margin-top: 20px; padding-top: 20px; border-top: 1px solid #e2e8f0; color: #a0aec0; }
         footer { text-align: center; margin-top: 80px; padding-top: 30px; border-top: 1px solid #e2e8f0; color: #718096; }
         @media (max-width: 768px) { .categories-grid { grid-template-columns: 1fr; } h1 { font-size: 2rem; } }
-    /* === ПОЛНОЭКРАННЫЙ РАЗДЕЛ "О ПРОЕКТЕ" === */
+  /* === ПОЛНОЭКРАННЫЙ РАЗДЕЛ "О ПРОЕКТЕ" === */
 
 .about-section.fullscreen {
     width: 100%;
@@ -202,14 +202,16 @@
     padding: 25px;
     border-radius: 15px;
     box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
-    transition: all 0.3s ease;
+    /* Убраны transition и hover эффекты */
     border: 2px solid transparent;
 }
 
+/* Убраны все hover эффекты для блока преимуществ */
 .benefit-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
-    border-color: #e2e8f0;
+    /* Убрано движение вверх и изменение тени */
+    transform: none;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06);
+    border-color: transparent;
 }
 
 .benefit-icon {
@@ -274,12 +276,10 @@
     height: 100%;
     object-fit: cover;
     display: block;
-    /* Убрана анимация трансформации */
-    transition: none;
 }
 
+/* Убрана анимация при наведении на изображение */
 .image-container:hover img {
-    /* Убрано масштабирование при наведении */
     transform: none;
 }
 
@@ -395,16 +395,15 @@
     padding: 30px 25px;
     background: #f8f9fa;
     border-radius: 20px;
-    transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
 }
 
+/* Убраны все hover эффекты для шагов инструкции */
 .step-card:hover {
-    background: white;
-    /* Убрано движение вверх при наведении */
+    background: #f8f9fa;
     transform: none;
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+    box-shadow: none;
 }
 
 .step-card::before {
@@ -598,9 +597,6 @@
         max-width: 1400px;
     }
 }
-
-/* УБРАНЫ АНИМАЦИИ */
-/* Удалены анимации slideUp и все задержки анимаций */
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Preload важных ресурсов -->
